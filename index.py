@@ -7,6 +7,9 @@ f.close()
 
 # Снимаем различные метрики текста
 
+text_metrix(g)
+
+print('That s all!')
 
 
 
