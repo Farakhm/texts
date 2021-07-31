@@ -1,4 +1,6 @@
-from service import text_metrix
+from lett_metr import lett_metrix
+from word_metr import word_metrix
+from sintext import sintes
 
 # Открываем текст
 f = open('first.txt', 'r')
@@ -7,7 +9,10 @@ f.close()
 
 # Снимаем различные метрики текста
 
-text_metrix(g)
+#lett_metrix(g)
+#word_metrix(g)
+
+sintes()
 
 print('That s all!')
 
