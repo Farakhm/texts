@@ -54,3 +54,50 @@ def init_signs():
     f.close()
     r1 = r.split('\n')
     return r1[0],r1[1],r1[2],r1[3],r1[4],r1[5]
+
+
+def fdiff(tx1,tx2):
+    res = True
+    m = min(len(tx1), len(tx2))
+    if (abs(len(tx1) - len(tx2)) > 4):
+        res = False
+    else:
+        for i in range(m):
+            if tx1[i] != tx2[i]:
+                res = False
+                break
+    return res
+
+def fsquar(tx1,tx2):
+    res = True
+    m1 = len(tx1)
+    m2 = len(tx2)
+    if m1 <= m2:
+        rx1 = tx1
+        rx2 = tx2
+    else:
+        rx1 = tx2
+        rx2 = tx1
+#  rx1 всегда самая короткая
+#  не рассчитываем для коротких слов
+    if (max(m1,m2) < 5):
+        res = False
+    else:
+        rx1 = tx1[:-2]
+        res = fdiff(rx1,rx2)
+    return res
+
+def differen(tx1,tx2):
+    res = False
+    m = min(len(tx1), len(tx2))
+    i = 0
+    n = 1
+    while tx1[i] == tx2[i]:
+        i = i + 1
+        if i == m:
+            break
+    n = i
+    if m - n < 3 and n > 2:
+        res = True
+    return res
+
